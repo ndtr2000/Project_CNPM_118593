@@ -12,4 +12,21 @@ public class Renter extends Person{
 		this.homeTown = homeTown;
 		this.startLiving = startLiving;
 	}
+
+	public String getHomeTown() {
+		return homeTown;
+	}
+
+	public void setHomeTown(String homeTown) {
+		this.homeTown = homeTown;
+	}
+
+	public Date getStartLiving() {
+		return startLiving;
+	}
+
+	public void setStartLiving(Date startLiving) {
+		this.startLiving = startLiving;
+	}
+	
 }

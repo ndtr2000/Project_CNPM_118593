@@ -9,13 +9,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import Core.Person;
-import Core.Student;
+import Core.Renter;
 
-public class StudentDAO {
+public class RenterDAO {
 	private  Connection myCon;
 	private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public StudentDAO() throws Exception {
+	public RenterDAO() throws Exception {
 		Properties prop = new Properties();
 		prop.load(new FileInputStream("sql/db.properties"));
 		String user = prop.getProperty("user");
@@ -25,9 +25,9 @@ public class StudentDAO {
 	}
 	
 	//Get all People from table into a list
-	public List<Student> getAllPeople() throws Exception{
+	public List<Renter> getAllPeople() throws Exception{
 		
-		List<Student> listAllStudent = new ArrayList<>();
+		List<Renter> listAllRenter = new ArrayList<>();
 		
 		Statement myStmt = null;
 		ResultSet myRs = null;
@@ -37,10 +37,10 @@ public class StudentDAO {
 			myRs = myStmt.executeQuery("SELECT * FROM person");
 			
 			while (myRs.next()) {
-				Student tempStudent = convertRowToStudent(myRs);
-				listAllStudent.add(tempStudent);
+				Renter tempRenter = convertRowToRenter(myRs);
+				listAllRenter.add(tempRenter);
 			}
-			return listAllStudent;
+			return listAllRenter;
 		}
 		finally {
 			close(myStmt, myRs);
@@ -48,23 +48,23 @@ public class StudentDAO {
 	}
 	
 	//Get All Person from table by Name
-	public List<Student> getStudentByName(String name) throws Exception{
-		List<Student> list = new ArrayList<>();
+	public List<Renter> getRenterByName(String name) throws Exception{
+		List<Renter> list = new ArrayList<>();
 		
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
 		
 		try {
 			name += "%";
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN student ON person.idPerson = student.idPerson WHERE firstName like ? or lastName like ?");
+			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN Renter ON person.idPerson = Renter.idPerson WHERE firstName like ? or lastName like ?");
 			myStmt.setString(1, name);
 			myStmt.setString(2, name);
 			
 			myRs = myStmt.executeQuery();
 			
 			while (myRs.next()) {
-				Student tempStudent = convertRowToStudent(myRs);
-				list.add(tempStudent);
+				Renter tempRenter = convertRowToRenter(myRs);
+				list.add(tempRenter);
 			}
 			return list;
 		}
@@ -74,19 +74,19 @@ public class StudentDAO {
 	}
 	
 	// Get Person from table by ID
-	public Student getStudentByID (String id) throws Exception{
+	public Renter getRenterByID (String id) throws Exception{
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
-		Student student =null;
+		Renter Renter =null;
 		
 		try {
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN student ON person.idPerson = student.idPerson WHERE person.idPerson =  ?");
+			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN Renter ON person.idPerson = Renter.idPerson WHERE person.idPerson =  ?");
 			myStmt.setString(1, id);
 			myRs = myStmt.executeQuery();
 			while (myRs.next()) {
-				student = convertRowToStudent(myRs);
+				Renter = convertRowToRenter(myRs);
 			}
-			return student;
+			return Renter;
 		}
 		finally {
 			close(myStmt, myRs);
@@ -94,7 +94,7 @@ public class StudentDAO {
 	}
 	
 	//Adding a Person to talbe
-	public void addStudent (Student newStudent) throws Exception{
+	public void addRenter (Renter newRenter) throws Exception{
 		PreparedStatement myStmt = null;
 		PreparedStatement myStmt1 = null;
 		try {
@@ -104,35 +104,34 @@ public class StudentDAO {
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			myStmt = myCon.prepareStatement(sql);
 			
-			String stringDate = formatter.format(newStudent.getBirth());
+			String stringDate = formatter.format(newRenter.getBirth());
 			
-			myStmt.setString(1, newStudent.getIdPerson());
-			myStmt.setString(2, newStudent.getIdFamily());
-			myStmt.setString(3, newStudent.getLastName());
-			myStmt.setString(4, newStudent.getFirstName());
-			myStmt.setString(5, newStudent.getRelationship());
+			myStmt.setString(1, newRenter.getIdPerson());
+			myStmt.setString(2, newRenter.getIdFamily());
+			myStmt.setString(3, newRenter.getLastName());
+			myStmt.setString(4, newRenter.getFirstName());
+			myStmt.setString(5, newRenter.getRelationship());
 			myStmt.setString(6, stringDate);
-			myStmt.setString(7, newStudent.getGender());
-			myStmt.setString(8, newStudent.getAddress());
-			myStmt.setString(9, newStudent.getEmail());
-			myStmt.setString(10, newStudent.getPhoneNum());
-			myStmt.setString(11, newStudent.getIdentityID());
-			myStmt.setString(12, newStudent.getEducation());
-			myStmt.setString(13, newStudent.getJob());
+			myStmt.setString(7, newRenter.getGender());
+			myStmt.setString(8, newRenter.getAddress());
+			myStmt.setString(9, newRenter.getEmail());
+			myStmt.setString(10, newRenter.getPhoneNum());
+			myStmt.setString(11, newRenter.getIdentityID());
+			myStmt.setString(12, newRenter.getEducation());
+			myStmt.setString(13, newRenter.getJob());
 			
 			myStmt.executeUpdate();
 			
-			sql = "INSERT INTO student"
-				+ "(idPerson, hometown, university, startLiving)"
+			sql = "INSERT INTO renter"
+				+ "(idPerson, hometown, startLiving)"
 				+ "VALUES(?, ?, ?, ?";
 			myStmt1 = myCon.prepareStatement(sql);
 			
-			stringDate = formatter.format(newStudent.getStartLiving());
+			stringDate = formatter.format(newRenter.getStartLiving());
 			
-			myStmt1.setString(1, newStudent.getIdPerson());
-			myStmt1.setString(2, newStudent.getHomeTown());
-			myStmt1.setString(3, newStudent.getUniversity());
-			myStmt1.setString(4,  stringDate);
+			myStmt1.setString(1, newRenter.getIdPerson());
+			myStmt1.setString(2, newRenter.getHomeTown());
+			myStmt1.setString(3,  stringDate);
 			
 			myStmt1.executeUpdate();
 		}
@@ -143,7 +142,7 @@ public class StudentDAO {
 	}
 	
 	//convert result set to Person
-	private Student convertRowToStudent(ResultSet myRs) throws SQLException, ParseException {
+	private Renter convertRowToRenter(ResultSet myRs) throws SQLException, ParseException {
 		String idPerson = myRs.getString("idPerson");
 		String idFamily = myRs.getString("idFamily");
 		String lastName = myRs.getString("lastName");
@@ -158,21 +157,20 @@ public class StudentDAO {
 		String identityID = myRs.getString("identityID");
 		String education = myRs.getString("education");
 		String hometown = myRs.getString("hometown");
-		String university = myRs.getString("university");
 		String startLiving = myRs.getString("startLiving");
 		
 		Date tempBirth = formatter.parse(birth);
 		Date tempDate = formatter.parse(startLiving);
 		
-		Student student = new Student(idPerson, idFamily, lastName, firstName, relationship, tempBirth, gender, address, email,
-				phoneNum, identityID, education, job, hometown, tempDate, university);
-		return student;
+		Renter Renter = new Renter(idPerson, idFamily, lastName, firstName, relationship, tempBirth, gender, address, email,
+				phoneNum, identityID, education, job, hometown, tempDate);
+		return Renter;
 		
 	}
 	
 	
 	//Updating a Person information in table
-	public void updateStudent(Student temp) throws SQLException{
+	public void updateRenter(Renter temp) throws SQLException{
 		PreparedStatement myStmt = null;
 		PreparedStatement myStmt1 = null;
 		try {
@@ -196,8 +194,8 @@ public class StudentDAO {
 			
 			myStmt.executeUpdate();
 			
-			 sql = "UPDATE student"
-						+"SET hometown = ?, university = ?, startLiving = ?"
+			 sql = "UPDATE Renter"
+						+"SET hometown = ?, startLiving = ?"
 						+"WHERE idPerson = ?";
 			
 			myStmt1 = myCon.prepareStatement(sql);
@@ -206,9 +204,8 @@ public class StudentDAO {
 			
 			
 			myStmt1.setString(1, temp.getHomeTown());
-			myStmt1.setString(2, temp.getUniversity());
-			myStmt1.setString(3,  stringDate);
-			myStmt1.setString(4, temp.getIdPerson());
+			myStmt1.setString(2,  stringDate);
+			myStmt1.setString(3, temp.getIdPerson());
 			
 			myStmt1.executeUpdate();
 			
@@ -220,7 +217,7 @@ public class StudentDAO {
 	}
 	
 	//Deleting a Person from table
-	public void deleteStudent(String idPerson) throws SQLException {
+	public void deleteRenter(String idPerson) throws SQLException {
 		PreparedStatement myStmt = null;
 		
 		try {
