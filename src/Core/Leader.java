@@ -28,5 +28,12 @@ public class Leader extends Person{
 	public void setEndDateTerm(Date endDateTerm) {
 		this.endDateTerm = endDateTerm;
 	}
+
+	@Override
+	public String toString() {
+		return "Leader [startDateTerm=" + startDateTerm + ", endDateTerm=" + endDateTerm + ", lastName=" + lastName
+				+ ", firstName=" + firstName + "]";
+	}
+	
 	
 }
