@@ -34,7 +34,7 @@ public class RenterDAO {
 		
 		try {
 			myStmt = myCon.createStatement();
-			myRs = myStmt.executeQuery("SELECT * FROM person");
+			myRs = myStmt.executeQuery("SELECT * FROM person INNER JOIN renter ON person.idPerson = renter.idPerson ");
 			
 			while (myRs.next()) {
 				Renter tempRenter = convertRowToRenter(myRs);
@@ -56,7 +56,7 @@ public class RenterDAO {
 		
 		try {
 			name += "%";
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN Renter ON person.idPerson = Renter.idPerson WHERE firstName like ? or lastName like ?");
+			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN renter ON person.idPerson = renter.idPerson WHERE firstName like ? or lastName like ?");
 			myStmt.setString(1, name);
 			myStmt.setString(2, name);
 			
@@ -80,7 +80,7 @@ public class RenterDAO {
 		Renter Renter =null;
 		
 		try {
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN Renter ON person.idPerson = Renter.idPerson WHERE person.idPerson =  ?");
+			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN renter ON person.idPerson = renter.idPerson WHERE person.idPerson =  ?");
 			myStmt.setString(1, id);
 			myRs = myStmt.executeQuery();
 			while (myRs.next()) {
@@ -194,7 +194,7 @@ public class RenterDAO {
 			
 			myStmt.executeUpdate();
 			
-			 sql = "UPDATE Renter"
+			 sql = "UPDATE renter"
 						+"SET hometown = ?, startLiving = ?"
 						+"WHERE idPerson = ?";
 			

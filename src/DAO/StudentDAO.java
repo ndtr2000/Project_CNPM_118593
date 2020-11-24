@@ -34,7 +34,7 @@ public class StudentDAO {
 		
 		try {
 			myStmt = myCon.createStatement();
-			myRs = myStmt.executeQuery("SELECT * FROM person");
+			myRs = myStmt.executeQuery("SELECT * FROM person INNER JOIN student ON person.idPerson = student.idPerson");
 			
 			while (myRs.next()) {
 				Student tempStudent = convertRowToStudent(myRs);
