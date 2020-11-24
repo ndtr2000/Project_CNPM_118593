@@ -34,15 +34,9 @@ public class RenterDAO {
 		
 		try {
 			myStmt = myCon.createStatement();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-			myRs = myStmt.executeQuery("SELECT * FROM person INNER JOIN renter ON person.idPerson = renter.idPerson ");
-=======
+
 			myRs = myStmt.executeQuery("SELECT * FROM person INNER JOIN renter ON person.idPerson = renter.idPerson");
->>>>>>> Stashed changes
-=======
-			myRs = myStmt.executeQuery("SELECT * FROM person INNER JOIN renter ON person.idPerson = renter.idPerson");
->>>>>>> Stashed changes
+
 			
 			while (myRs.next()) {
 				Renter tempRenter = convertRowToRenter(myRs);
