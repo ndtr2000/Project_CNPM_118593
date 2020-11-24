@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import Core.Person;
+
 import Core.Renter;
 
 public class RenterDAO {
@@ -25,7 +25,7 @@ public class RenterDAO {
 	}
 	
 	//Get all People from table into a list
-	public List<Renter> getAllPeople() throws Exception{
+	public List<Renter> getAllRenter() throws Exception{
 		
 		List<Renter> listAllRenter = new ArrayList<>();
 		
@@ -253,4 +253,6 @@ public class RenterDAO {
 	private void close(Statement myStmt, ResultSet myRs) throws SQLException{
 		close(null, myStmt, myRs);
 	}
+	
+	
 }

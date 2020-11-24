@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import Core.Person;
 import Core.Student;
 
 public class StudentDAO {
@@ -25,7 +24,7 @@ public class StudentDAO {
 	}
 	
 	//Get all People from table into a list
-	public List<Student> getAllPeople() throws Exception{
+	public List<Student> getAllStudent() throws Exception{
 		
 		List<Student> listAllStudent = new ArrayList<>();
 		

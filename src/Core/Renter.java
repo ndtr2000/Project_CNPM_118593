@@ -28,5 +28,10 @@ public class Renter extends Person{
 	public void setStartLiving(Date startLiving) {
 		this.startLiving = startLiving;
 	}
+
+	@Override
+	public String toString() {
+		return "Renter [lastName=" + lastName + ", firstName=" + firstName + "]";
+	}
 	
 }
