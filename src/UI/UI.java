@@ -14,6 +14,7 @@ public class UI {
     /**
      * @param args the command line arguments
      */
+    /* cmt by khang*/
     public static void main(String[] args) {
         // TODO code application logic here
         new Login().setVisible(true);
