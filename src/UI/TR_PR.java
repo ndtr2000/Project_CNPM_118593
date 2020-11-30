@@ -29,7 +29,6 @@ public class TR_PR extends javax.swing.JFrame {
 
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
@@ -41,64 +40,68 @@ public class TR_PR extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jComboBox8 = new javax.swing.JComboBox<>();
         jComboBox9 = new javax.swing.JComboBox<>();
         jComboBox10 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(420, 596));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel8.setBackground(new java.awt.Color(7, 19, 51));
         jPanel8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.setMaximumSize(null);
-        jPanel8.setMinimumSize(null);
+        jPanel8.setPreferredSize(new java.awt.Dimension(420, 631));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(238, 238, 238));
         jLabel8.setText("Reason");
-
-        jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator3.setAlignmentX(0.0F);
-        jSeparator3.setAlignmentY(0.0F);
-        jSeparator3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jSeparator3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 418, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(238, 238, 238));
         jLabel9.setText("Temporary Residence");
+        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 157, -1, -1));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator4.setAlignmentX(0.0F);
         jSeparator4.setAlignmentY(0.0F);
         jSeparator4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator4.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jPanel8.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 217, 320, 20));
 
         jLabel10.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(238, 238, 238));
         jLabel10.setText("From");
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 335, -1, 34));
 
         jLabel11.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(238, 238, 238));
         jLabel11.setText("Permanent Residence");
+        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 243, -1, -1));
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator6.setAlignmentX(0.0F);
         jSeparator6.setAlignmentY(0.0F);
         jSeparator6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator6.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jPanel8.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 303, 320, 20));
 
         jLabel12.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(238, 238, 238));
         jLabel12.setText("Indentity ID");
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 92, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("PingFang HK", 0, 20)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(238, 238, 238));
         jLabel17.setText("Declaration of Temporary Residence");
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 320, -1));
 
         jComboBox1.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox1.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -110,6 +113,7 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 335, 60, -1));
 
         jComboBox2.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox2.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -121,6 +125,7 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
+        jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 335, 90, -1));
 
         jComboBox3.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox3.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -132,6 +137,7 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
+        jPanel8.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 335, 90, -1));
 
         jComboBox4.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox4.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -143,11 +149,7 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox4ActionPerformed(evt);
             }
         });
-
-        jButton1.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(7, 19, 51));
-        jButton1.setText("Save");
-        jButton1.setBorder(null);
+        jPanel8.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 127, 320, -1));
 
         jTextField3.setBackground(new java.awt.Color(7, 19, 51));
         jTextField3.setFont(new java.awt.Font("PingFang HK", 0, 12)); // NOI18N
@@ -159,22 +161,19 @@ public class TR_PR extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
+        jPanel8.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 196, 320, 19));
 
         jTextField4.setBackground(new java.awt.Color(7, 19, 51));
         jTextField4.setFont(new java.awt.Font("PingFang HK", 0, 12)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(238, 238, 238));
         jTextField4.setText("Enter your Permanent Residence");
         jTextField4.setBorder(null);
-
-        jTextField7.setBackground(new java.awt.Color(7, 19, 51));
-        jTextField7.setFont(new java.awt.Font("PingFang HK", 0, 12)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(238, 238, 238));
-        jTextField7.setText("Enter your reason");
-        jTextField7.setBorder(null);
+        jPanel8.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 279, 320, 24));
 
         jLabel13.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(238, 238, 238));
         jLabel13.setText("To");
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 374, -1, 33));
 
         jComboBox8.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox8.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -186,6 +185,7 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox8ActionPerformed(evt);
             }
         });
+        jPanel8.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 374, 60, -1));
 
         jComboBox9.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox9.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -197,6 +197,7 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox9ActionPerformed(evt);
             }
         });
+        jPanel8.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 374, 90, -1));
 
         jComboBox10.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox10.setFont(new java.awt.Font("PingFang HK", 0, 13)); // NOI18N
@@ -208,107 +209,51 @@ public class TR_PR extends javax.swing.JFrame {
                 jComboBox10ActionPerformed(evt);
             }
         });
+        jPanel8.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 374, 90, -1));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel8)
-                        .addComponent(jTextField7)
-                        .addComponent(jLabel13)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel12)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(17, 17, 17)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jTextField4)
-                        .addComponent(jSeparator3)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addContainerGap(50, Short.MAX_VALUE))
+        jTextArea1.setBackground(new java.awt.Color(7, 19, 51));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(5);
+        jTextArea1.setTabSize(12);
+        jTextArea1.setText(" Enter your reason");
+        jTextArea1.setToolTipText("");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel8.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 454, 320, -1));
+
+        jPanel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jPanel6.setPreferredSize(new java.awt.Dimension(100, 0));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+
+        jLabel36.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(7, 19, 51));
+        jLabel36.setText("Save");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jLabel36)
+                .addGap(31, 31, 31))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel17)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jLabel9)
-                .addGap(15, 15, 15)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addGap(12, 12, 12)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(12, 12, 12)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jPanel8.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 551, -1, 40));
+
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -344,6 +289,10 @@ public class TR_PR extends javax.swing.JFrame {
     private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -381,7 +330,6 @@ public class TR_PR extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -394,14 +342,22 @@ public class TR_PR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
