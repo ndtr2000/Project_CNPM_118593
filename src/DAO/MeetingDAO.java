@@ -13,6 +13,8 @@ import Core.Person;
 import Core.Renter;
 import Core.Student;
 
+
+
 public class MeetingDAO {
 	private  Connection myCon;
 	private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
