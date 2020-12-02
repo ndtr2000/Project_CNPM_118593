@@ -1,7 +1,7 @@
 package Core;
 
 import java.util.Date;
-
+/* cmt nek*/
 public class Renter extends Person{
 	protected String homeTown;
 	protected Date startLiving;
