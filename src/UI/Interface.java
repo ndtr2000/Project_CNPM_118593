@@ -5,17 +5,27 @@
  */
 package UI;
 
+import Core.Person;
+import DAO.PersonDAO;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Bostrap
  */
 public class Interface extends javax.swing.JFrame {
-
+    
+    private PersonDAO personDAO;
     /**
      * Creates new form Interface
      */
-    public Interface() {
+    public Interface() throws Exception{
+        personDAO = new PersonDAO();
         initComponents();
+        
     }
 
     /**
@@ -65,7 +75,6 @@ public class Interface extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jp3 = new javax.swing.JPanel();
@@ -546,7 +555,9 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -602,6 +613,11 @@ public class Interface extends javax.swing.JFrame {
 
         jTextField1.setForeground(new java.awt.Color(7, 19, 51));
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jPanel21.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 20, 340, 23));
 
         jButton2.setBackground(new java.awt.Color(7, 9, 51));
@@ -614,21 +630,14 @@ public class Interface extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 85, 23));
+        jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 85, 23));
 
         jButton3.setBackground(new java.awt.Color(7, 9, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("      Delete      ");
         jButton3.setBorder(null);
-        jPanel21.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, 23));
-
-        jButton10.setBackground(new java.awt.Color(7, 9, 51));
-        jButton10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("     Arrange    ");
-        jButton10.setBorder(null);
-        jPanel21.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 85, 23));
+        jPanel21.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 23));
 
         jButton11.setBackground(new java.awt.Color(7, 9, 51));
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -640,7 +649,7 @@ public class Interface extends javax.swing.JFrame {
                 jButton11MouseClicked(evt);
             }
         });
-        jPanel21.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 140, 23));
+        jPanel21.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, 23));
 
         jButton13.setBackground(new java.awt.Color(7, 9, 51));
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -2068,7 +2077,7 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -2253,7 +2262,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jp5.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 500));
@@ -2499,11 +2508,33 @@ public class Interface extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        try{
+            String name = jTextField1.getText();
+            List <Person> people = null;
+            if(name != null && name.trim().length() > 0 ) {
+                people = personDAO.getPersonByName(name);
+            }
+            else{
+                people = personDAO.getAllPeople();
+            }
+            PersonTableModel model = new PersonTableModel(people);
+            jTable1.setModel(model);
+        }
+        
+        catch(Exception e){
+            JOptionPane.showMessageDialog(jp2, "Error: "+ e, "Error",JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+       
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2535,13 +2566,16 @@ public class Interface extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interface().setVisible(true);
+                try {
+                    new Interface().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;

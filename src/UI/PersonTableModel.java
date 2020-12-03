@@ -38,12 +38,12 @@ public class PersonTableModel extends AbstractTableModel{
     }
     @Override
     public int getRowCount() {
-        return columnNames.length; //To change body of generated methods, choose Tools | Templates.
+        return people.size(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int getColumnCount() {
-        return people.size(); //To change body of generated methods, choose Tools | Templates.
+        return columnNames.length; //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
