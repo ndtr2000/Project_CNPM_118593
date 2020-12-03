@@ -14,10 +14,10 @@ public class UI {
     /**
      * @param args the command line arguments
      */
+    /* cmt by khang*/
     public static void main(String[] args) {
         // TODO code application logic here
-        new Interface().setVisible(true);
-        //new Login().setVisible(true);
+        new Login().setVisible(true);
     }
     
 }
