@@ -12,4 +12,28 @@ public class Officer extends Person {
 		this.startDateTerm = startDateTerm;
 		this.endDateTerm = endDateTerm;
 	}
+
+	public Date getStartDateTerm() {
+		return startDateTerm;
+	}
+
+	public void setStartDateTerm(Date startDateTerm) {
+		this.startDateTerm = startDateTerm;
+	}
+
+	public Date getEndDateTerm() {
+		return endDateTerm;
+	}
+
+	public void setEndDateTerm(Date endDateTerm) {
+		this.endDateTerm = endDateTerm;
+	}
+	
+	//Override
+	public String toString() {
+		return "Officer [startDateTerm=" + startDateTerm + ", endDateTerm=" + endDateTerm + ", lastName=" + lastName
+				+ ", firstName=" + firstName + "]";
+	}
+	
+	
 }

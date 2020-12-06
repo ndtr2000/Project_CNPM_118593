@@ -14,13 +14,13 @@ import java.util.Date;
 
 import java.util.Properties;
 
-import Core.Officer;
+import Core.ViceLeader;
 
-public class OfficerDAO {
+public class ViceLeaderDAO {
 	private  Connection myCon;
 	private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public OfficerDAO() throws Exception {
+	public ViceLeaderDAO() throws Exception {
 		Properties prop = new Properties();
 		prop.load(new FileInputStream("sql/db.properties"));
 		String user = prop.getProperty("user");
@@ -31,18 +31,18 @@ public class OfficerDAO {
 
 	
 	// Get Person from table by ID
-	public Officer getOfficer () throws Exception{
+	public ViceLeader getViceLeader () throws Exception{
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
-		Officer Officer =null;
+		ViceLeader ViceLeader =null;
 		
 		try {
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN managerjob ON person.idPerson = managerjob.idPerson WHERE managerjob.idJob != 1");
+			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN managerjob ON person.idPerson = managerjob.idPerson WHERE managerjob.idJob = 1");
 			myRs = myStmt.executeQuery();
 			while (myRs.next()) {
-				Officer = convertRowToOfficer(myRs);
+				ViceLeader = convertRowToViceLeader(myRs);
 			}
-			return Officer;
+			return ViceLeader;
 		}
 		finally {
 			close(myStmt, myRs);
@@ -50,7 +50,7 @@ public class OfficerDAO {
 	}
 	
 	//Adding a Person to talbe
-	public void addOfficer (Officer newOfficer) throws Exception{
+	public void addViceLeader (ViceLeader newViceLeader) throws Exception{
 		PreparedStatement myStmt = null;
 		
 		try {
@@ -59,10 +59,10 @@ public class OfficerDAO {
 					+ "VALUES(?, ?, ?, ?)";
 			myStmt = myCon.prepareStatement(sql);
 			
-			String stringStartDate = formatter.format(newOfficer.getStartDateTerm());
-			String stringEndDate = formatter.format(newOfficer.getEndDateTerm());
+			String stringStartDate = formatter.format(newViceLeader.getStartDateTerm());
+			String stringEndDate = formatter.format(newViceLeader.getEndDateTerm());
 			
-			myStmt.setString(1, newOfficer.getIdPerson());
+			myStmt.setString(1, newViceLeader.getIdPerson());
 			myStmt.setString(2, "1");
 			myStmt.setString(3, stringStartDate);
 			myStmt.setString(4, stringEndDate);
@@ -77,7 +77,7 @@ public class OfficerDAO {
 	}
 	
 	//convert result set to Person
-	private Officer convertRowToOfficer(ResultSet myRs) throws SQLException, ParseException {
+	private ViceLeader convertRowToViceLeader(ResultSet myRs) throws SQLException, ParseException {
 		String idPerson = myRs.getString("idPerson");
 		String idFamily = myRs.getString("idFamily");
 		String lastName = myRs.getString("lastName");
@@ -99,9 +99,9 @@ public class OfficerDAO {
 		Date tempStartDate = formatter.parse(startDateTerm);
 		Date tempEndDate = formatter.parse(endDateTerm);
 		
-		Officer Officer = new Officer(idPerson, idFamily, lastName, firstName, relationship, tempBirth, gender, address, email,
+		ViceLeader ViceLeader = new ViceLeader(idPerson, idFamily, lastName, firstName, relationship, tempBirth, gender, address, email,
 				phoneNum, identityID, education, job, tempStartDate, tempEndDate);
-		return Officer;
+		return ViceLeader;
 		
 	}
 	

@@ -1,6 +1,5 @@
 package DAO;
 
-
 import java.io.FileInputStream;
 import java.sql.*;
 import java.text.ParseException;
@@ -9,17 +8,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import Core.Person;
-import Core.Renter;
-import Core.Student;
 
-
+import Core.Meeting;
 
 public class MeetingDAO {
 	private  Connection myCon;
 	private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public MeetingDao() throw Exception {
+	public MeetingDAO() throws Exception {
 		Properties prop = new Properties();
 		prop.load(new FileInputStream("sql/db.properties"));
 		String user = prop.getProperty("user");
@@ -29,17 +25,17 @@ public class MeetingDAO {
 	}
 	
 	//Get all People from table into a list
-	public List<Meeting> getAllPeople() throws Exception{
-			
-		List<Meeting> listAllPerson = new ArrayList<>();
-			
+	public List<Meeting> getAllMeeting() throws Exception{
+		
+		List<Meeting> listAllMeeting = new ArrayList<>();
+		
 		Statement myStmt = null;
 		ResultSet myRs = null;
-			
+		
 		try {
 			myStmt = myCon.createStatement();
-			myRs = myStmt.executeQuery("Select * FROM person INNER JOIN Meeting ON person.idPerson = Meeting.idPerson WHERE firstName like ? or lastName like ?");
-				
+			myRs = myStmt.executeQuery("Select * FROM meeting");
+			
 			while (myRs.next()) {
 				Meeting tempMeeting = convertRowToMeeting(myRs);
 				listAllMeeting.add(tempMeeting);
@@ -49,21 +45,19 @@ public class MeetingDAO {
 		finally {
 			close(myStmt, myRs);
 		}
-	}	
+	}
 	
-	
-	//Get all people from table by name
-	public List<Meeting> getMeetingByName(String name) throws Exception{
+	//Get All Person from table by Name
+	public List<Meeting> getMeetingByTopic(String topic) throws Exception{
 		List<Meeting> list = new ArrayList<>();
 		
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
 		
 		try {
-			name += "%";
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN Meeting ON person.idPerson = Meeting.idPerson WHERE firstName like ? or lastName like ?");
-			myStmt.setString(1, name);
-			myStmt.setString(2, name);
+			topic += "%";
+			myStmt = myCon.prepareStatement("SELECT * FROM meeting WHERE topic like ?");
+			myStmt.setString(1, topic);
 			
 			myRs = myStmt.executeQuery();
 			
@@ -78,15 +72,14 @@ public class MeetingDAO {
 		}
 	}
 	
-	
-	//Get Person from table by ID
-	public Student getMeetingByID (String id) throws Exception{
+	// Get Person from table by ID
+	public Meeting getMeetingByID (String id) throws Exception{
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
-		Meeting meeting=null;
+		Meeting meeting =null;
 		
 		try {
-			myStmt = myCon.prepareStatement("SELECT * FROM person INNER JOIN Meeting ON person.idPerson = Meeting.idPerson WHERE person.idPerson =  ?");
+			myStmt = myCon.prepareStatement("SELECT * FROM meeting WHERE idMeeting = ?");
 			myStmt.setString(1, id);
 			myRs = myStmt.executeQuery();
 			while (myRs.next()) {
@@ -99,54 +92,101 @@ public class MeetingDAO {
 		}
 	}
 	
-	
-	//Adding person to table
+	//Adding a Meeting to table
 	public void addMeeting (Meeting newMeeting) throws Exception{
 		PreparedStatement myStmt = null;
-		PreparedStatement myStmt1 = null;
 		try {
-			String sql = "INSERT INTO person"
-					+ "(idPerson, idFamily, lastName, firstName, relationship, tempBirth, gender, address, email,\r\n"
-					+ "				phoneNum, identityID, education, job)"
-					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO meeting"
+					+ "(idMeeting, date, place, topic)"
+					+ "VALUES(?, ?, ?, ?)";
 			myStmt = myCon.prepareStatement(sql);
 			
-			String stringDate = formatter.format(newMeeting.getBirth());
+			String stringDate = formatter.format(newMeeting.getDate());
 			
-			myStmt.setString(1, newMeeting.getIdPerson());
-			myStmt.setString(2, newMeeting.getIdFamily());
-			myStmt.setString(3, newMeeting.getLastName());
-			myStmt.setString(4, newMeeting.getFirstName());
-			myStmt.setString(5, newMeeting.getRelationship());
-			myStmt.setString(6, stringDate);
-			myStmt.setString(7, newMeeting.getGender());
-			myStmt.setString(8, newMeeting.getAddress());
-			myStmt.setString(9, newMeeting.getEmail());
-			myStmt.setString(10, newMeeting.getPhoneNum());
-			myStmt.setString(11, newMeeting.getIdentityID());
-			myStmt.setString(12, newMeeting.getEducation());
-			myStmt.setString(13, newMeeting.getJob());
+			myStmt.setString(1, newMeeting.getIdMeeting());
+			myStmt.setString(2, stringDate);
+			myStmt.setString(3, newMeeting.getPlace());
+			myStmt.setString(4, newMeeting.getTopic());
 			
 			myStmt.executeUpdate();
-			
-			sql = "INSERT INTO Meeting"
-				+ "(date, place, topic, startLiving)"
-				+ "VALUES(?, ?, ?, ?";
-			myStmt1 = myCon.prepareStatement(sql);
-			
-			stringDate = formatter.format(newStudent.getStartLiving());
-			
-			myStmt1.setString(1, newStudent.getIdPerson());
-			myStmt1.setString(2, newStudent.getHomeTown());
-			myStmt1.setString(3, newStudent.getUniversity());
-			myStmt1.setString(4,  stringDate);
-			
-			myStmt1.executeUpdate();
 		}
 		finally {
 			myStmt.close();
-			myStmt1.close();
 		}
 	}
 	
+	//convert result set to Meeting
+	private Meeting convertRowToMeeting(ResultSet myRs) throws SQLException, ParseException {
+		String idMeeting = myRs.getString("idMeeting");
+		String place = myRs.getString("place");
+		String topic = myRs.getString("topic");
+		String date = myRs.getString("date");
+		
+		Date tempDate = formatter.parse(date);
+		
+		Meeting meeting = new Meeting(idMeeting, tempDate, place, topic);
+		return meeting;
+		
+	}
+	
+	
+	//Updating a Person information in table
+	public void updateMeeting(Meeting temp) throws SQLException{
+		PreparedStatement myStmt = null;
+		try {
+			String sql = "UPDATE meeting"
+					+"SET date = ?, place = ?, topic = ?"
+					+"WHERE idMeeting = ?";
+			myStmt = myCon.prepareStatement(sql);
+			
+			String stringDate = formatter.format(temp.getDate());
+			
+			
+			myStmt.setString(1, stringDate);
+			myStmt.setString(2, temp.getPlace());
+			myStmt.setString(3, temp.getTopic());
+			myStmt.setString(4, temp.getIdMeeting());
+			
+			myStmt.executeUpdate();
+			
+		}
+		finally {
+			myStmt.close();
+		}
+	}
+	
+	//Deleting a Person from table
+	public void deleteMeeting(String idMeeting) throws SQLException {
+		PreparedStatement myStmt = null;
+		try {
+			String sql = "DELETE Meeting WHERE idMeeting = ?";
+			myStmt = myCon.prepareStatement(sql);
+			
+			myStmt.setString(1, idMeeting);
+			
+			myStmt.executeUpdate();
+					
+		}
+		finally {
+			myStmt.close();
+		}
+	}
+	
+	private static void close(Connection myCon, Statement myStmt, ResultSet myRs) throws SQLException{
+		if (myRs != null) {
+			myRs.close();
+		}
+		
+		if (myStmt != null) {
+			myStmt.close();
+		}
+		
+		if (myCon != null) {
+			myCon.close();
+		}
+	}
+	
+	private void close(Statement myStmt, ResultSet myRs) throws SQLException{
+		close(null, myStmt, myRs);
+	}
 }
