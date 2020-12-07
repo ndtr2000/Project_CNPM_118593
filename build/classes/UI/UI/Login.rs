@@ -1,9 +1,0 @@
-UI.Login$1
-UI.Login$2
-UI.Login$3
-UI.Login$4
-UI.Login
-UI.Login$5
-UI.Login$6
-UI.Login$7
-UI.Login$8

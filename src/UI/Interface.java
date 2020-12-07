@@ -555,9 +555,6 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -613,11 +610,6 @@ public class Interface extends javax.swing.JFrame {
 
         jTextField1.setForeground(new java.awt.Color(7, 19, 51));
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
         jPanel21.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 20, 340, 23));
 
         jButton2.setBackground(new java.awt.Color(7, 9, 51));
@@ -630,14 +622,19 @@ public class Interface extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 85, 23));
+        jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 85, 23));
 
         jButton3.setBackground(new java.awt.Color(7, 9, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("      Delete      ");
         jButton3.setBorder(null);
-        jPanel21.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 23));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel21.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 23));
 
         jButton11.setBackground(new java.awt.Color(7, 9, 51));
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -2262,7 +2259,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         jp5.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 500));
@@ -2529,12 +2526,42 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        try{
+            int row = jTable1.getSelectedRow();
+            if(row <0){
+                JOptionPane.showMessageDialog(jp2,"Please select a person","Warning",JOptionPane.ERROR_MESSAGE);
+		return;
+            }
+            Person temp = (Person) jTable1.getValueAt(row, PersonTableModel.OBJECT_COL);
+            EditForm editForm = new EditForm(jp2, temp, personDAO);
+            editForm.setVisible(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try{
+            int row = jTable1.getSelectedRow();
+            if(row <0) {
+		JOptionPane.showMessageDialog(jp2,"Please select a person","Warning",JOptionPane.ERROR_MESSAGE);
+		return;
+            }
+            
+            Person temp = (Person) jTable1.getValueAt(row, PersonTableModel.OBJECT_COL);
+            personDAO.deletePerson(temp.getIdPerson());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        jButton13ActionPerformed(evt);
+        JOptionPane.showMessageDialog(jp2,"Deleted","Deleted",JOptionPane.INFORMATION_MESSAGE);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

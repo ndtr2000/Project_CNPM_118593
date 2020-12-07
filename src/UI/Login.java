@@ -5,6 +5,9 @@
  */
 package UI;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Bostrap
@@ -418,7 +421,11 @@ public class Login extends javax.swing.JFrame {
     private void tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2MouseClicked
         // TODO add your handling code here:
         if (true){
-            new Interface().setVisible(true);
+            try {
+                new Interface().setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
             jPanel10.setVisible(false);
             jPanel3.setVisible(false);
         }

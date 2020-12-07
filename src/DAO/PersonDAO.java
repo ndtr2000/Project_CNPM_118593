@@ -184,7 +184,7 @@ public class PersonDAO {
 	public void deletePerson(String idPerson) throws SQLException {
 		PreparedStatement myStmt = null;
 		try {
-			String sql = "DELETE person WHERE idPerson = ?";
+			String sql = "DELETE FROM person WHERE idPerson = ?";
 			myStmt = myCon.prepareStatement(sql);
 			
 			myStmt.setString(1, idPerson);
