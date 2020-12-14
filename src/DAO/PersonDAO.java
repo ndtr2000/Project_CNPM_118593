@@ -155,8 +155,8 @@ public class PersonDAO {
 		PreparedStatement myStmt = null;
 		try {
 			String sql = "UPDATE person"
-					+"SET lastName = ?, firstName = ?, birth = ?, address = ?, email = ?, phoneNum = ?, job = ?, identityID = ?, education = ?"
-					+"WHERE idPerson = ?";
+					+" SET lastName = ?, firstName = ?, birth = ?, address = ?, email = ?, phoneNum = ?, job = ?, identityID = ?, education = ?"
+					+" WHERE idPerson = ?";
 			myStmt = myCon.prepareStatement(sql);
 			
 			String stringDate = formatter.format(temp.getBirth());
