@@ -8,3 +8,13 @@
 
 # Hướng dẫn cài đặt
 
+1. Clone github project với Netbeans (Team -> Git -> Clone)
+```
+https://github.com/ndtr2000/Project_CNPM_118593
+```
+2. Install JDBC trong netbeans :
+    1. Chọn dependencies. Chuột phải chọn mysql-1 -> manually install artifact
+    1. Browse -> Chọn đến đường dẫn file jdbc.jar
+3. Import cơ sở dữ liệu mẫu trong thư mục sql
+4. Run project trong NetBeans
+ 
