@@ -46,5 +46,7 @@ public class Meeting {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
-	
+	public Meeting() {
+            
+        }
 }

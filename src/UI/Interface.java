@@ -5,12 +5,24 @@
  */
 package UI;
 
+import Core.Meeting;
 import Core.Person;
 import DAO.PersonDAO;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JToolBar;
 
 /**
  *
@@ -18,6 +30,8 @@ import javax.swing.JOptionPane;
  */
 public class Interface extends javax.swing.JFrame {
     
+    
+    private JTable eventTable;
     private PersonDAO personDAO;
     /**
      * Creates new form Interface
@@ -2621,6 +2635,54 @@ public class Interface extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        /*
+        eventTable = new JTable(); 
+        JPanel panel_events = new JPanel();
+        panel_events.setLayout(new BorderLayout(0, 0));
+        JToolBar toolBar_41 = new JToolBar();
+	toolBar_41.setBackground(new Color(0, 255, 51));
+	panel_events.add(toolBar_41, BorderLayout.NORTH);
+        int row = eventTable.getSelectedRow();
+        if(row <0) {
+            JOptionPane.showMessageDialog(panel_events,"Please select an Event","Warning",JOptionPane.ERROR_MESSAGE);
+            return;
+	}
+        
+        List<String> allEmails = new  ArrayList<String>();
+        try {
+            List<Person> people;
+            people = personDAO.getAllPeople();
+            for(Person k: people) {
+		String s = k.getEmail();
+		allEmails.add(s);
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+	}
+        Meeting temp = (Meeting) eventTable.getValueAt(row, MeetingTableModel.OBJECT_COL);
+        EmailSender sender;
+        try {
+            sender = new EmailSender(null);
+            sender.sendEvent(temp, allEmails);
+	} catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+	}
+        */
+        
+        EmailSender sender = null;
+        try {
+            sender = new EmailSender(null);
+        } catch (IOException ex) {
+            Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            sender.MailSender("hp20183500@gmail.com");
+        } catch (Exception ex) {
+            Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

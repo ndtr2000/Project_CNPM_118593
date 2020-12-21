@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/dell%207559/Documents/GitHub/Project_CNPM_118593/src/UI/PersonTableModel.java</file>
-            <file>file:/C:/Users/dell%207559/Documents/GitHub/Project_CNPM_118593/src/UI/EditForm.java</file>
-            <file>file:/C:/Users/dell%207559/Documents/GitHub/Project_CNPM_118593/src/UI/TR_PR.java</file>
-            <file>file:/C:/Users/dell%207559/Documents/GitHub/Project_CNPM_118593/src/DAO/PersonDAO.java</file>
-            <file>file:/C:/Users/dell%207559/Documents/GitHub/Project_CNPM_118593/src/UI/Interface.java</file>
-            <file>file:/C:/Users/dell%207559/Documents/GitHub/Project_CNPM_118593/src/UI/Login.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/Project_CNPM_118593/src/UI/MeetingTableModel.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/Project_CNPM_118593/src/UI/EmailSender.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/Project_CNPM_118593/src/UI/Interface.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/Project_CNPM_118593/src/UI/PersonTableModel.java</file>
+            <file>file:/C:/Users/DELL/Documents/GitHub/Project_CNPM_118593/src/Core/Meeting.java</file>
         </group>
     </open-files>
 </project-private>
