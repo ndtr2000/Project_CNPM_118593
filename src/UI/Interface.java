@@ -208,7 +208,6 @@ public class Interface extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jp5 = new javax.swing.JPanel();
-        jLabel55 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -226,11 +225,9 @@ public class Interface extends javax.swing.JFrame {
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox<>();
         jLabel60 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
-        jLabel61 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2090,11 +2087,6 @@ public class Interface extends javax.swing.JFrame {
         jp5.setPreferredSize(new java.awt.Dimension(900, 640));
         jp5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel55.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(238, 238, 238));
-        jLabel55.setText("Household ID:");
-        jp5.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 85, -1, 26));
-
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -2267,42 +2259,42 @@ public class Interface extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
         jButton4.setForeground(new java.awt.Color(7, 19, 51));
-        jButton4.setText("Print");
+        jButton4.setText("Search");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jp5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 85, 100, 32));
-
-        jComboBox5.setBackground(new java.awt.Color(7, 19, 51));
-        jComboBox5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jComboBox5.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data", " " }));
-        jp5.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 85, 242, -1));
+        jp5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 100, 32));
 
         jLabel60.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(238, 238, 238));
-        jLabel60.setText("First Name:");
-        jp5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 41, -1, -1));
+        jLabel60.setText("ID Person");
+        jp5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         jComboBox6.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jComboBox6.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data", " " }));
-        jp5.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 41, 242, -1));
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
+            }
+        });
+        jp5.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 242, -1));
 
-        jLabel61.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
-        jLabel61.setForeground(new java.awt.Color(238, 238, 238));
-        jLabel61.setText("Last Name:");
-        jp5.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 41, -1, -1));
-
-        jComboBox7.setBackground(new java.awt.Color(7, 19, 51));
-        jComboBox7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jComboBox7.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data", " " }));
-        jp5.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 41, 242, -1));
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(7, 19, 51));
+        jButton5.setText("Print");
+        jButton5.setBorder(null);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jp5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 100, 32));
 
         jPanel2.add(jp5);
 
@@ -2349,6 +2341,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void tab5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab5MouseClicked
         // TODO add your handling code here:
+        
         jp5.setVisible(true);
         jp1.setVisible(false);
         jp3.setVisible(false);
@@ -2379,6 +2372,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        jComboBox6ActionPerformed(evt);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField50ActionPerformed
@@ -2563,6 +2557,38 @@ public class Interface extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+        List<Person> people = null;
+        try {
+            people = personDAO.getAllPeople();
+        } catch (Exception ex) {
+            Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for(Person per: people){
+            jComboBox6.addItem(per.getIdPerson());
+        }
+    }//GEN-LAST:event_jComboBox6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if (jComboBox6.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(jp5,"Please select a person","Warning",JOptionPane.ERROR_MESSAGE);
+            
+        }
+        else{
+            Person tempPer = null;
+            try {
+                tempPer = personDAO.getPersonByID((String) jComboBox6.getSelectedItem());
+            } catch (Exception ex) {
+                Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jTextField11.setText(tempPer.getLastName()+" " +tempPer.getFirstName());
+            
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2608,6 +2634,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox21;
@@ -2621,9 +2648,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox36;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2666,14 +2691,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
