@@ -228,6 +228,8 @@ public class Interface extends javax.swing.JFrame {
         jLabel60 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2259,14 +2261,14 @@ public class Interface extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
         jButton4.setForeground(new java.awt.Color(7, 19, 51));
-        jButton4.setText("Search");
+        jButton4.setText("Send All");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jp5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 100, 32));
+        jp5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 100, 32));
 
         jLabel60.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(238, 238, 238));
@@ -2294,7 +2296,31 @@ public class Interface extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jp5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 100, 32));
+        jp5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 100, 32));
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(7, 19, 51));
+        jButton6.setText("Search");
+        jButton6.setBorder(null);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jp5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 100, 32));
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(7, 19, 51));
+        jButton7.setText("Send Email");
+        jButton7.setBorder(null);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jp5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 100, 32));
 
         jPanel2.add(jp5);
 
@@ -2589,6 +2615,14 @@ public class Interface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2635,6 +2669,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox21;
