@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/DAO/PersonDAO.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/Core/Leader.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/DAO/RenterDAO.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/UI/UI.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/DAO/Main.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/UI/TR_PR.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/Core/Renter.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/DAO/LeaderDAO.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/DAO/MeetingDAO.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/UI/Moving.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/Core/Officer.java</file>
+            <file>file:/home/khangt1k25/Project_CNPM_118593/src/UI/Interface.java</file>
+        </group>
     </open-files>
 </project-private>
