@@ -32,9 +32,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel10 = new javax.swing.JPanel();
         jp3 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jTextField9 = new javax.swing.JTextField();
@@ -43,6 +41,8 @@ public class Login extends javax.swing.JFrame {
         PW = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jp2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -63,6 +63,7 @@ public class Login extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,18 +73,10 @@ public class Login extends javax.swing.JFrame {
 
         jp3.setBackground(new java.awt.Color(7, 19, 51));
 
-        jLabel14.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(238, 238, 238));
-        jLabel14.setText("Username");
-
         jLabel15.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel15.setFont(new java.awt.Font("PingFang HK", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(238, 238, 238));
         jLabel15.setText("Sign In ");
-
-        jLabel17.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(238, 238, 238));
-        jLabel17.setText("Password");
 
         jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator8.setAlignmentX(0.0F);
@@ -98,7 +91,6 @@ public class Login extends javax.swing.JFrame {
         jTextField9.setBackground(new java.awt.Color(7, 19, 51));
         jTextField9.setFont(new java.awt.Font("PingFang HK", 0, 12)); // NOI18N
         jTextField9.setForeground(new java.awt.Color(238, 238, 238));
-        jTextField9.setText("Enter your username");
         jTextField9.setBorder(null);
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +126,6 @@ public class Login extends javax.swing.JFrame {
 
         PW.setBackground(new java.awt.Color(7, 19, 51));
         PW.setForeground(new java.awt.Color(238, 238, 238));
-        PW.setText("jPasswordField2");
         PW.setBorder(null);
         PW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +137,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel16.setBackground(new java.awt.Color(204, 204, 204));
         jLabel16.setFont(new java.awt.Font("PingFang HK", 0, 16)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(33, 111, 219));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Change pasword");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -170,6 +161,16 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Password");
+        jLabel6.setToolTipText("");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("User name");
+        jLabel7.setToolTipText("");
+
         javax.swing.GroupLayout jp3Layout = new javax.swing.GroupLayout(jp3);
         jp3.setLayout(jp3Layout);
         jp3Layout.setHorizontalGroup(
@@ -177,16 +178,16 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jp3Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel17)
-                        .addComponent(jLabel14)
                         .addComponent(jSeparator8)
                         .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
                         .addComponent(jSeparator9)
                         .addComponent(PW, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 63, Short.MAX_VALUE))
         );
         jp3Layout.setVerticalGroup(
@@ -194,15 +195,15 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jp3Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
                 .addComponent(jLabel15)
-                .addGap(60, 60, 60)
-                .addComponent(jLabel14)
-                .addGap(10, 10, 10)
+                .addGap(66, 66, 66)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel17)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(20, 20, 20)
                 .addComponent(PW, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,7 +211,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel10.add(jp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
@@ -361,8 +362,6 @@ public class Login extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(143, 223, 255));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bostrap\\Desktop\\Project_CNPM_118593-master\\bin\\UI\\neptune login.png")); // NOI18N
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         jPanel8.setBackground(new java.awt.Color(7, 19, 51));
@@ -406,6 +405,10 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(7, 19, 51));
         jLabel5.setText("Residential Area");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, -1, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/bin/neptune login.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 270, 280));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 580));
 
@@ -495,18 +498,19 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField PW;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

@@ -7,6 +7,8 @@ package UI;
 
 import Core.Person;
 import DAO.PersonDAO;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -231,7 +233,8 @@ public class EditForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        savePerson();
+        JOptionPane.showMessageDialog(thisPanel,"Saved","Saved",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -265,7 +268,7 @@ public class EditForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditForm().setVisible(true);
+                
             }
         });
     }
@@ -295,7 +298,27 @@ public class EditForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
-public void savePerson(){
-    String id = prevPerson
-}
+    public void savePerson() {
+        String identityID = jTextField5.getText();
+        String firstName = jTextField3.getText();
+        String lastName = jTextField7.getText();
+        String relationship = jTextField6.getText();
+        String phoneNum = jTextField4.getText();
+        String address = jTextField8.getText();
+        
+        prevPerson.setIdentityID(identityID);
+        prevPerson.setFirstName(firstName);
+        prevPerson.setLastName(lastName);
+        prevPerson.setRelationship(relationship);
+        prevPerson.setPhoneNum(phoneNum);
+        prevPerson.setAddress(address);
+        
+        try{
+            personDAO.updatePerson(prevPerson);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        setVisible(false);
+        dispose();
+    }
 }
