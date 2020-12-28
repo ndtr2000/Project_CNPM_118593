@@ -495,7 +495,7 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel44.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(9, 123, 154));
-        jLabel44.setText("DATA");
+        jLabel44.setText("11");
 
         jLabel45.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(9, 123, 154));
@@ -503,7 +503,7 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel46.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(9, 123, 154));
-        jLabel46.setText("DATA");
+        jLabel46.setText("16");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -528,7 +528,7 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel44)
                     .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2131,7 +2131,7 @@ public class Interface extends javax.swing.JFrame {
         });
 
         jTextField12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField12.setText(".......................................................................................................................................................");
+        jTextField12.setText("......................................Nhà văn hóa trung tâm tổ...........................................................");
         jTextField12.setBorder(null);
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2619,22 +2619,36 @@ public class Interface extends javax.swing.JFrame {
 	}
         */
         
-        EmailSender sender = null;
-        try {
+        if (jComboBox6.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(jp5,"Please select a person","Warning",JOptionPane.ERROR_MESSAGE);
+            
+        }
+        else{
+            Person tempPer = null;
             try {
-                sender = new EmailSender(null);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (MessagingException ex) {
+                tempPer = personDAO.getPersonByID((String) jComboBox6.getSelectedItem());
+            } catch (Exception ex) {
                 Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (IOException ex) {
+            String email_host = tempPer.getEmail();
+        
+            EmailSender sender = null;
+            try {
+                try {
+                    sender = new EmailSender(null);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (MessagingException ex) {
+                    Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (IOException ex) {
+                    Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                sender.MailSender(email_host);
+            } catch (Exception ex) {
             Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            sender.MailSender("hp20183500@gmail.com");
-        } catch (Exception ex) {
-            Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }//GEN-LAST:event_jButton7ActionPerformed
