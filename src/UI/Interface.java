@@ -12,8 +12,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
@@ -125,8 +129,7 @@ public class Interface extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jLabel64 = new javax.swing.JLabel();
         jSeparator42 = new javax.swing.JSeparator();
@@ -238,7 +241,6 @@ public class Interface extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         jLabel60 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
@@ -280,7 +282,7 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(tab1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.add(tab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 290, 50));
@@ -342,7 +344,7 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(tab3Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel5)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.add(tab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 290, -1));
@@ -481,11 +483,11 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(9, 123, 154));
-        jLabel39.setText("DATA");
+        jLabel39.setText("23");
 
         jLabel40.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(9, 123, 154));
-        jLabel40.setText("DATA");
+        jLabel40.setText("7");
 
         jLabel43.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(9, 123, 154));
@@ -526,7 +528,7 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel44)
                     .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -626,7 +628,6 @@ public class Interface extends javax.swing.JFrame {
         jPanel21.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 20, 340, 23));
 
         jButton2.setBackground(new java.awt.Color(7, 9, 51));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("        Edit       ");
         jButton2.setBorder(null);
@@ -638,7 +639,6 @@ public class Interface extends javax.swing.JFrame {
         jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 85, 23));
 
         jButton3.setBackground(new java.awt.Color(7, 9, 51));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("      Delete      ");
         jButton3.setBorder(null);
@@ -650,7 +650,6 @@ public class Interface extends javax.swing.JFrame {
         jPanel21.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 23));
 
         jButton11.setBackground(new java.awt.Color(7, 9, 51));
-        jButton11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Temporary Residence");
         jButton11.setBorder(null);
@@ -662,7 +661,6 @@ public class Interface extends javax.swing.JFrame {
         jPanel21.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, 23));
 
         jButton13.setBackground(new java.awt.Color(7, 9, 51));
-        jButton13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("     Search     ");
         jButton13.setBorder(null);
@@ -878,32 +876,12 @@ public class Interface extends javax.swing.JFrame {
         jTextField9.setText("Enter your education");
         jTextField9.setBorder(null);
 
-        jPanel18.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jPanel18.setPreferredSize(new java.awt.Dimension(100, 0));
-        jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel18MouseClicked(evt);
+        jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel36.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(7, 19, 51));
-        jLabel36.setText("Save");
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jLabel36)
-                .addGap(31, 31, 31))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -948,8 +926,8 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel13)
                                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1035,8 +1013,8 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Family", jPanel8);
@@ -1261,7 +1239,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jLabel37)
                 .addGap(31, 31, 31))
         );
@@ -1402,7 +1380,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jSeparator49, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Student", jPanel15);
@@ -1627,7 +1605,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jLabel38)
                 .addGap(31, 31, 31))
         );
@@ -1768,7 +1746,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jSeparator57, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Renter", jPanel16);
@@ -1841,7 +1819,6 @@ public class Interface extends javax.swing.JFrame {
         jTextField58.setFont(new java.awt.Font("PingFang HK", 0, 12)); // NOI18N
         jTextField58.setForeground(new java.awt.Color(238, 238, 238));
         jTextField58.setText("Enter your relationship");
-        jTextField58.setActionCommand("<Not Set>");
         jTextField58.setBorder(null);
         jTextField58.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1953,7 +1930,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jLabel35)
                 .addGap(20, 20, 20))
         );
@@ -1980,7 +1957,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jLabel33)
                 .addGap(35, 35, 35))
         );
@@ -2196,15 +2173,15 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(jPanel13Layout.createSequentialGroup()
                             .addComponent(jLabel27)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                            .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE))
                         .addGroup(jPanel13Layout.createSequentialGroup()
                             .addComponent(jLabel26)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                         .addGroup(jPanel13Layout.createSequentialGroup()
                             .addComponent(jLabel24)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                         .addGroup(jPanel13Layout.createSequentialGroup()
                             .addComponent(jLabel25)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2272,22 +2249,10 @@ public class Interface extends javax.swing.JFrame {
 
         jp5.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 500));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(7, 19, 51));
-        jButton4.setText("Send All");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jp5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 100, 32));
-
         jLabel60.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(238, 238, 238));
         jLabel60.setText("ID Person");
-        jp5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+        jp5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         jComboBox6.setBackground(new java.awt.Color(7, 19, 51));
         jComboBox6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -2298,7 +2263,7 @@ public class Interface extends javax.swing.JFrame {
                 jComboBox6ActionPerformed(evt);
             }
         });
-        jp5.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 242, -1));
+        jp5.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 242, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
@@ -2310,7 +2275,7 @@ public class Interface extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jp5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 100, 32));
+        jp5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 100, 32));
 
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
         jButton6.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
@@ -2322,7 +2287,7 @@ public class Interface extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jp5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 100, 32));
+        jp5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 100, 32));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setFont(new java.awt.Font("PingFang HK", 0, 17)); // NOI18N
@@ -2334,7 +2299,7 @@ public class Interface extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jp5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 100, 32));
+        jp5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, 100, 32));
 
         jPanel2.add(jp5);
 
@@ -2410,11 +2375,6 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField14ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        jComboBox6ActionPerformed(evt);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jTextField50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField50ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField50ActionPerformed
@@ -2430,14 +2390,6 @@ public class Interface extends javax.swing.JFrame {
     private void jTextField51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField51ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField51ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
@@ -2524,10 +2476,6 @@ public class Interface extends javax.swing.JFrame {
     private void jPanel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel17MouseClicked
-
-    private void jPanel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel18MouseClicked
 
     private void jPanel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel19MouseClicked
         // TODO add your handling code here:
@@ -2673,7 +2621,13 @@ public class Interface extends javax.swing.JFrame {
         
         EmailSender sender = null;
         try {
-            sender = new EmailSender(null);
+            try {
+                sender = new EmailSender(null);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (MessagingException ex) {
+                Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (IOException ex) {
             Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2684,6 +2638,68 @@ public class Interface extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private JPanel thisPanel;
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        // TODO add your handling code here:
+        
+        String firstName = jTextField2.getText();
+        String lastName = jTextField7.getText();
+        String relationship = jTextField3.getText();
+        String address = jTextField4.getText();
+        String contact = jTextField5.getText();
+        String job = jTextField6.getText();
+        String id = jTextField8.getText();
+        String education = jTextField9.getText();
+        String day = (String) jComboBox1.getSelectedItem();
+        String month = (String) jComboBox2.getSelectedItem();
+        String year = (String) jComboBox3.getSelectedItem();
+        String tempBirth = day + "/" + month + "/" + year; 
+        Date birth = new Date();
+
+        try {
+            birth = formatter.parse(tempBirth);
+        } catch (ParseException ex) {
+            Logger.getLogger(Interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Random generator = new Random();
+        int value = generator.nextInt((100000 - 1) + 1) + 1;
+	String value1 = String.valueOf(value);
+        String gender = (String) jComboBox4.getSelectedItem();
+        Person temp = null;
+        temp = new Person(value1,"1",lastName, firstName, relationship, birth, gender, address,"hp20183500@gmail.com" ,contact, id, education, job);
+	try {
+            personDAO.addPerson(temp);
+            JOptionPane.showMessageDialog(thisPanel, "Added successfully", "Added successfully ", JOptionPane.INFORMATION_MESSAGE);			
+	    setVisible(false);
+	    dispose();	
+	}
+	catch(Exception e) {
+            JOptionPane.showMessageDialog(thisPanel,"Error saving: "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+	}		
+        
+/*
+        AddPersonalInfor diag;
+	try {
+		diag = new AddPersonalInfor(personDAO);
+		diag.setVisible(true);
+	} catch (Exception e1) {
+            e1.printStackTrace();
+	}
+*/        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2725,11 +2741,11 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -2776,7 +2792,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -2830,7 +2845,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;

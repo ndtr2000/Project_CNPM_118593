@@ -95,9 +95,10 @@ public class PersonDAO {
 	//Adding a Person to talbe
 	public void addPerson (Person newPerson) throws Exception{
 		PreparedStatement myStmt = null;
+                
 		try {
 			String sql = "INSERT INTO person"
-					+ "(idPerson, idFamily, lastName, firstName, relationship, tempBirth, gender, address, email,\r\n"
+					+ "(idPerson, idFamily, lastName, firstName, relationship, birth, gender, address, email,\r\n"
 					+ "				phoneNum, identityID, education, job)"
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			myStmt = myCon.prepareStatement(sql);

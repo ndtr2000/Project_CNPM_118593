@@ -95,7 +95,9 @@ public class EmailSender {
              message.setFrom(new InternetAddress(sender));
              message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
              message.setSubject("Email for Meeting");
-             message.setText("Meeting email");
+             message.setText("Hi friends, You have an meeting at our center tomorrow!"
+                     + "We will send invatation to you soon" 
+                     +"Thank you!");
              return message;
          } catch (Exception ex) {
              Logger.getLogger(EmailSender.class.getName()).log(Level.SEVERE, null,ex);

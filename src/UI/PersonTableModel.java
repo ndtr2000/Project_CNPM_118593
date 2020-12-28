@@ -24,13 +24,13 @@ public class PersonTableModel extends AbstractTableModel{
     public static final int BIRTHDAY_COL = 4;
     public static final int ADDRESS_COL = 5;
     public static final int GENDER_COL = 6;
-    public static final int HOMETOWN_COL = 7;
-    public static final int START_LIVING_COL = 8;
+    public static final int JOB_COL = 7;
+    public static final int EDUCATION_COL = 8;
     public static final int PHONE_NUM = 9;
-    public static final int JOB_COL = 10;
+    public static final int Email_COL = 10;
     private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     
-    private String[] columnNames ={"STT", "First Name", "Last Name", "Identity ID", "Birthday", "Address", "Gender", "Hometown", "Start Living", "Phone Num", "Job"};
+    private String[] columnNames ={"STT", "First Name", "Last Name", "Identity ID", "Birthday", "Address", "Gender", "Job", "Education", "Phone", "Email"};
     private List<Person> people;
     
     public PersonTableModel(List<Person> people){
@@ -72,14 +72,14 @@ public class PersonTableModel extends AbstractTableModel{
                 return tempPer.getAddress();
             case GENDER_COL:
                 return tempPer.getGender();
-            case HOMETOWN_COL:
-                return "";
-            case START_LIVING_COL:
-                return "";
+            case JOB_COL:
+                return tempPer.getJob();
+            case EDUCATION_COL:
+                return tempPer.getEducation();
             case PHONE_NUM:
                 return tempPer.getPhoneNum();
-            case JOB_COL:
-                return "";
+            case Email_COL:
+                return tempPer.getEmail();
             default:
                 return tempPer.getIdPerson();
         }
