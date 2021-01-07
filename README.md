@@ -1,4 +1,3 @@
-# Project nhập môn công nghệ phần mềm  20201
 ## Quản lý thông tin hộ khẩu, nhân khẩu
  Quản lý thông tin cá nhân, tạo và quản lý lịch hẹn
  
